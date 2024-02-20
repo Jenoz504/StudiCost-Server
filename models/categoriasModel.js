@@ -8,6 +8,14 @@ const CategoriasSchema = mongoose.Schema({
     nombre: {
         type: String,
         required: true
+    },
+    descripcion: {
+        type: String,
+        required: false
+    },
+    propietario: {
+        type: String,
+        required: true
     }
 })
 module.exports = mongoose.model('Categorias', CategoriasSchema);
