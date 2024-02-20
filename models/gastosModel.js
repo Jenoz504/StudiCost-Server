@@ -13,12 +13,12 @@ const gastosSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    costoClase: {
-        type: Number,
+    clase: {
+        type: String,
         required: false
     },
-    nota: {
-        type: Number,
+    propietario: {
+        type: String,
         required: false
     }
 })

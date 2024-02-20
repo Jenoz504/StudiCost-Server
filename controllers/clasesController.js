@@ -67,7 +67,7 @@ exports.eliminarClase = async (req, res) => {
             res.status(404).json({msg: "La clase no existe"});
         }
 
-        res.json({msg: "La farmacia ha sido eliminada"})        
+        res.json({msg: "La clase ha sido eliminada"})        
 
     } catch (error) {
         console.log(error)
