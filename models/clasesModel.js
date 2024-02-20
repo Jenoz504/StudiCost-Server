@@ -20,6 +20,10 @@ const clasesSchema = mongoose.Schema({
     nota: {
         type: Number,
         required: false
+    },
+    propietario: {
+        type: String,
+        required: false
     }
 })
 module.exports = mongoose.model('Categorias', CategoriasSchema);
