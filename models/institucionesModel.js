@@ -9,7 +9,11 @@ const InstitucionesSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    ubicacion: {
+    direccion: {
+        type: String,
+        required: true
+    },
+    propietario: {
         type: String,
         required: true
     }

@@ -12,6 +12,14 @@ const PeriodosSchema = mongoose.Schema({
     fechacierre: {
         type: String,
         required: true
+    },
+    institucion: {
+        type: String,
+        required: true
+    },
+    propietario: {
+        type: String,
+        required: true
     }
 })
 module.exports = mongoose.model('Periodos', PeriodosSchema);
