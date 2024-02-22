@@ -21,7 +21,7 @@ const clasesSchema = mongoose.Schema({
         type: Number,
         required: false
     },
-    propietario: {
+    estudiante: {
         type: String,
         required: false
     }

@@ -13,9 +13,9 @@ exports.crearPeriodo = async (req, res) => {
     }
 };
 
-exports.obtenerPeriodosDelUsuario = async (req, res) => {
+exports.obtenerPeriodosDelEstudiante = async (req, res) => {
     try {
-        const periodo = await periodosModel.find({propietario: req.body.id})
+        const periodo = await periodosModel.find({estudiante: req.body.id})
         res.json(periodo);
     } catch (error) {
         console.log(error);
@@ -40,7 +40,7 @@ exports.obtenerPeriodo = async (req, res) => {
 
 exports.actualizarPeriodo = async (req, res) => {
     try {
-        const {id, fechainico, fechacierre, institucion, propietario} = req.body;
+        const {id, fechainico, fechacierre, institucion, estudiante} = req.body;
         let periodo = await periodosModel.findById(req.params.id);
 
         if (!periodo) {
@@ -51,7 +51,7 @@ exports.actualizarPeriodo = async (req, res) => {
         periodo.fechainico = fechainico;
         periodo.fechacierre = fechacierre;
         periodo.institucion = institucion;        
-        periodo.propietario = propietario;
+        periodo.estudiante = estudiante;
 
     } catch (error) {
         console.log(error);

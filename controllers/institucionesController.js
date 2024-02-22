@@ -13,7 +13,7 @@ exports.crearInstitucion = async (req, res) => {
     }
 };
 
-exports.obtenerInstitucionesDelUsuario = async (req, res) => {
+exports.obtenerInstitucionesDelEstudiante = async (req, res) => {
     try {
         const instituciones = await institucionesModel.find({propietario: req.body.id})
         res.json(instituciones);
@@ -40,7 +40,7 @@ exports.obtenerInstitucion = async (req, res) => {
 
 exports.actualizarInstitucion = async (req, res) => {
     try {
-        const {id, nombre, direccion, propietario} = req.body;
+        const {id, nombre, direccion, estudiante} = req.body;
         let institucion = await institucionesModel.findById(req.params.id);
 
         if (!institucion) {
@@ -50,7 +50,7 @@ exports.actualizarInstitucion = async (req, res) => {
         institucion.id = id;
         institucion.nombre = nombre;
         institucion.direccion = direccion;        
-        institucion.propietario = propietario;
+        institucion.estudiante = estudiante;
 
     } catch (error) {
         console.log(error);

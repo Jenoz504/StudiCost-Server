@@ -17,7 +17,7 @@ const PeriodosSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    propietario: {
+    estudiante: {
         type: String,
         required: true
     }

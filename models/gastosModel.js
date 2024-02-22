@@ -17,7 +17,7 @@ const gastosSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    propietario: {
+    estudiante: {
         type: String,
         required: false
     }

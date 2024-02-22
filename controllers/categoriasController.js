@@ -11,9 +11,9 @@ exports.crearCategorias = async (req, res) => {
         res.status(500).send(error);
     }
 }
-exports.obtenerCategoriasDelUsuario= async (req, res) => {
+exports.obtenerCategoriasDelEstudiante= async (req, res) => {
     try {
-        const categoria = await Categorias.find({propietario: req.body.id})
+        const categoria = await Categorias.find({estudiante: req.body.id})
         res.json(categoria);
     } catch (error) {
         console.log(error);
@@ -39,7 +39,7 @@ exports.obtenerCategoria = async (req, res) => {
 
 exports.actualizarCategorias = async (req, res) => {
     try {
-        const {id, nombre, descripcion, propietario} = req.body;
+        const {id, nombre, descripcion, estudiante} = req.body;
         let categorias = await Categorias.findById(req.params.id);
 
         if (!categorias) {
@@ -49,7 +49,7 @@ exports.actualizarCategorias = async (req, res) => {
         categorias.id = id;
         categorias.nombre = nombre;
         categorias.descripcion = descripcion;
-        categorias.propietario = propietario;
+        categorias.estudiante = estudiante;
     } catch (error) {
         console.log(error);
         res.status(500).send(error);    

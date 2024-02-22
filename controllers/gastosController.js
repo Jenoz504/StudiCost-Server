@@ -13,9 +13,9 @@ exports.crearGasto = async (req, res) => {
     }
 };
 
-exports.obtenerGastosDelUsuario = async (req, res) => {
+exports.obtenerGastosDelEstudiante = async (req, res) => {
     try {
-        const gasto = await gastosModel.find({propietario: req.body.id})
+        const gasto = await gastosModel.find({estudiante: req.body.id})
         res.json(gasto);
     } catch (error) {
         console.log(error);
@@ -40,7 +40,7 @@ exports.obtenerGasto = async (req, res) => {
 
 exports.actualizargasto = async (req, res) => {
     try {
-        const {id, descripcion, categoria, clase, propietario} = req.body;
+        const {id, descripcion, categoria, clase, estudiante} = req.body;
         let gasto = await gastosModel.findById(req.params.id);
 
         if (!gasto) {
@@ -51,7 +51,7 @@ exports.actualizargasto = async (req, res) => {
         gasto.descripcion = descripcion;
         gasto.categoria = categoria;
         gasto.clase = clase;        
-        gasto.propietario = propietario;
+        gasto.estudiante = estudiante;
 
     } catch (error) {
         console.log(error);

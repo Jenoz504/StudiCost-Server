@@ -13,7 +13,7 @@ const CategoriasSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    propietario: {
+    estudiante: {
         type: String,
         required: true
     }

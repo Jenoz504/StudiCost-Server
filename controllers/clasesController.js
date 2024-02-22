@@ -12,9 +12,9 @@ exports.crearClase = async (req, res) => {
     }
 };
 
-exports.obtenerClasesDelUsuario = async (req, res) => {
+exports.obtenerClasesDelEstudiante = async (req, res) => {
     try {
-        const clase = await Clases.find({propietario: req.body.id})
+        const clase = await Clases.find({estudiante: req.body.id})
         res.json(clase);
     } catch (error) {
         console.log(error);
@@ -39,7 +39,7 @@ exports.obtenerClase = async (req, res) => {
 
 exports.actualizarClases = async (req, res) => {
     try {
-        const {id, nombre, periodo, costoClase, nota, propietario} = req.body;
+        const {id, nombre, periodo, costoClase, nota, estudiante} = req.body;
         let clase = await Clases.findById(req.params.id);
 
         if (!clase) {
@@ -51,7 +51,7 @@ exports.actualizarClases = async (req, res) => {
         clase.periodo = periodo;
         clase.costoClase = costoClase;
         clase.nota = nota;
-        clase.propietario = propietario;
+        clase.estudiante = estudiante;
 
     } catch (error) {
         console.log(error);
