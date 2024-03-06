@@ -20,6 +20,14 @@ const estudiantesSchema = mongoose.Schema({
     presupuesto: {
         type: Number,
         required: false
-    }
+    },
+    usuario: {
+        type: String,
+        required: true
+    },
+    contrasena: {
+        type: String,
+        required: true
+    }  
 })
 module.exports = mongoose.model('Estudiantes', estudiantesSchema);
