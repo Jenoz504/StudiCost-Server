@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const CategoriasSchema = mongoose.Schema({
     id: {
@@ -17,5 +17,6 @@ const CategoriasSchema = mongoose.Schema({
         type: String,
         required: true
     }
-})
+});
+
 module.exports = mongoose.model('Categorias', CategoriasSchema);

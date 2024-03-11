@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-require('dotenv').config({path: 'enviroment.env'});
+require('dotenv').config({ path: 'enviroment.env' });
 
-export const conectarDB = async () => {
+const conectarDB = async () => {
     try {
         await mongoose.connect(process.env.DB_MONGO);
         console.log('Base de datos conectada');
@@ -11,3 +11,5 @@ export const conectarDB = async () => {
         process.exit(1);
     }
 }
+
+module.exports = conectarDB;

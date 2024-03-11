@@ -22,4 +22,4 @@ const gastosSchema = mongoose.Schema({
         required: false
     }
 })
-module.exports = mongoose.model('Categorias', CategoriasSchema);
+module.exports = mongoose.model('Gastos', gastosSchema);

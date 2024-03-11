@@ -26,4 +26,4 @@ const clasesSchema = mongoose.Schema({
         required: false
     }
 })
-module.exports = mongoose.model('Categorias', CategoriasSchema);
+module.exports = mongoose.model('Clases', clasesSchema);

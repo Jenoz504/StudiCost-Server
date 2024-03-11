@@ -14,8 +14,8 @@ exports.crearClase = async (req, res) => {
 
 exports.obtenerClasesDelEstudiante = async (req, res) => {
     try {
-        const clase = await Clases.find({estudiante: req.body.id})
-        res.json(clase);
+        const clases = await Clases.find({ estudiante: req.params.estudiante });
+        res.json(clases);
     } catch (error) {
         console.log(error);
         res.status(500).send(error);    

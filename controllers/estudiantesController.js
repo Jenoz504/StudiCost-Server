@@ -1,11 +1,11 @@
 const Estudiantes = require('../models/estudiantesModel');
 
-exports.crearestudiante = async (req, res) => {
+exports.crearEstudiante = async (req, res) => {
     try {
         let estudiante = new Estudiantes(req.body);
         await estudiante.save();
         res.send(estudiante);    
-        console.log(estudiante);
+        console.log("ESTUDIANTE GUARDADO ",estudiante);
     } catch (error) {
         console.log(error);
         res.status(500).send(error);
