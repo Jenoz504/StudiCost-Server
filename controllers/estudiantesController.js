@@ -21,6 +21,21 @@ exports.obtenerEstudiantes = async (req, res) => {
         res.status(500).send(error);    
     }
 }
+exports.obtenerEstudiantePorUsuario = async (req, res) => {
+    try {
+        const estudiante = await Estudiantes.findOne({usuario: req.params.usuario});
+
+        if (!estudiante) {
+          res.status(404).json({msg: 'El estudiante no existe'});  
+        }else {
+            res.json(estudiante);
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);        
+    }
+}
 
 exports.obtenerestudiante = async (req, res) => {
     try {
