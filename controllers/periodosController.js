@@ -15,7 +15,7 @@ exports.crearPeriodo = async (req, res) => {
 
 exports.obtenerPeriodosDelEstudiante = async (req, res) => {
     try {
-        const periodo = await periodosModel.find({estudiante: req.body.id})
+        const periodo = await periodosModel.find({estudiante: req.params.estudiante})
         res.json(periodo);
     } catch (error) {
         console.log(error);
@@ -40,18 +40,20 @@ exports.obtenerPeriodo = async (req, res) => {
 
 exports.actualizarPeriodo = async (req, res) => {
     try {
-        const {id, fechainico, fechacierre, institucion, estudiante} = req.body;
+        const {nombre, fechainico, fechacierre, institucion, estudiante} = req.body;
         let periodo = await periodosModel.findById(req.params.id);
 
         if (!periodo) {
             res.status(404).json({msg: "La periodo no existe"});
         }
-        
-        periodo.id = id;
+                
+        periodo.nombre = nombre;
         periodo.fechainico = fechainico;
         periodo.fechacierre = fechacierre;
         periodo.institucion = institucion;        
         periodo.estudiante = estudiante;
+        periodo.save();
+        res.json({msg: "Periodo Actualizado"});
 
     } catch (error) {
         console.log(error);

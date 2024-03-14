@@ -50,8 +50,7 @@ exports.actualizarCategorias = async (req, res) => {
         categorias.descripcion = descripcion;
         categorias.estudiante = estudiante;
         categorias.save();
-        res.json({msg: "La categoria se ha actualizado"});
-        console.log(categorias);
+        res.json({msg: "La categoria se ha actualizado"});        
     } catch (error) {
         console.log(error);
         res.status(500).send(error);    

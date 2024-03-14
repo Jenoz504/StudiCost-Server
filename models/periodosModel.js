@@ -5,15 +5,15 @@ const PeriodosSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    nombre: {
+        type: String,
+        required: true
+    },
     fechainicio: {
         type: String,
         required: true
     },
     fechacierre: {
-        type: String,
-        required: true
-    },
-    institucion: {
         type: String,
         required: true
     },

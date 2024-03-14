@@ -13,7 +13,7 @@ const clasesSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    costoClase: {
+    costoclase: {
         type: Number,
         required: false
     },

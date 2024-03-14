@@ -15,7 +15,7 @@ exports.crearInstitucion = async (req, res) => {
 
 exports.obtenerInstitucionesDelEstudiante = async (req, res) => {
     try {
-        const instituciones = await institucionesModel.find({propietario: req.body.id})
+        const instituciones = await institucionesModel.find({estudiante: req.params.estudiante})
         res.json(instituciones);
     } catch (error) {
         console.log(error);
@@ -51,7 +51,8 @@ exports.actualizarInstitucion = async (req, res) => {
         institucion.nombre = nombre;
         institucion.direccion = direccion;        
         institucion.estudiante = estudiante;
-
+        institucion.save();
+        res.json({msg: "La institucion se ha actualizado"});   
     } catch (error) {
         console.log(error);
         res.status(500).send(error);    

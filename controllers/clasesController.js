@@ -39,20 +39,20 @@ exports.obtenerClase = async (req, res) => {
 
 exports.actualizarClases = async (req, res) => {
     try {
-        const {id, nombre, periodo, costoClase, nota, estudiante} = req.body;
+        const {nombre, periodo, costoClase, nota, estudiante} = req.body;
         let clase = await Clases.findById(req.params.id);
 
         if (!clase) {
             res.status(404).json({msg: "La clase no existe"});
         }
         
-        clase.id = id;
         clase.nombre = nombre;
         clase.periodo = periodo;
         clase.costoClase = costoClase;
         clase.nota = nota;
         clase.estudiante = estudiante;
-
+        clase.save();
+        res.json(clase);
     } catch (error) {
         console.log(error);
         res.status(500).send(error);    

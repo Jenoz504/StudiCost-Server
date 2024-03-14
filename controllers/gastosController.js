@@ -15,7 +15,7 @@ exports.crearGasto = async (req, res) => {
 
 exports.obtenerGastosDelEstudiante = async (req, res) => {
     try {
-        const gasto = await gastosModel.find({estudiante: req.body.id})
+        const gasto = await gastosModel.find({estudiante: req.params.estudiante})
         res.json(gasto);
     } catch (error) {
         console.log(error);
@@ -52,7 +52,8 @@ exports.actualizargasto = async (req, res) => {
         gasto.categoria = categoria;
         gasto.clase = clase;        
         gasto.estudiante = estudiante;
-
+        gasto.save();
+        res.json(gasto);
     } catch (error) {
         console.log(error);
         res.status(500).send(error);    

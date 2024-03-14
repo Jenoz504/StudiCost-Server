@@ -9,7 +9,15 @@ const gastosSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    cantidad: {
+        type: Number,
+        required: true
+    },
     categoria: {
+        type: String,
+        required: false
+    },
+    fecha: {
         type: String,
         required: false
     },
@@ -19,7 +27,7 @@ const gastosSchema = mongoose.Schema({
     },
     estudiante: {
         type: String,
-        required: false
+        required: true
     }
 })
 module.exports = mongoose.model('Gastos', gastosSchema);
