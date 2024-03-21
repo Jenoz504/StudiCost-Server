@@ -40,7 +40,7 @@ exports.obtenerPeriodo = async (req, res) => {
 
 exports.actualizarPeriodo = async (req, res) => {
     try {
-        const {nombre, fechainico, fechacierre, institucion, estudiante} = req.body;
+        const {nombre, fechainico, fechacierre, institucion, estudiante, presupuesto} = req.body;
         let periodo = await periodosModel.findById(req.params.id);
 
         if (!periodo) {
@@ -52,6 +52,7 @@ exports.actualizarPeriodo = async (req, res) => {
         periodo.fechacierre = fechacierre;
         periodo.institucion = institucion;        
         periodo.estudiante = estudiante;
+        periodo.presupuesto = presupuesto;
         periodo.save();
         res.json({msg: "Periodo Actualizado"});
 

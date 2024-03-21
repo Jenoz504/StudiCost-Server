@@ -20,6 +20,10 @@ const PeriodosSchema = mongoose.Schema({
     estudiante: {
         type: String,
         required: true
-    }
+    },
+    presupuesto: {
+        type: Number,
+        required: true
+    },
 })
 module.exports = mongoose.model('Periodos', PeriodosSchema);
